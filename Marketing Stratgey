@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+/*
+ * Complete the 'minimumSwaps' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts STRING status as parameter.
+ */
+
+int minimumSwaps(string status) {
+int n=status.length();
+int ans_a=0,ans_b=0;
+for(int i=0;i<n;i++)
+{
+    if(i%2==0)
+    {
+        if (status[i]=='S')
+        { ans_a++;
+
+        }
+        else
+        {
+            ans_b++;
+        }
+        
+    }
+    else {
+         if (status[i]=='S')
+        { ans_b++;
+
+        }
+        else
+        {
+            ans_a++;
+        }
+    
+    }
+}
+return min(ans_a,ans_b);
+}
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string status;
+    getline(cin, status);
+
+    int result = minimumSwaps(status);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
+}
